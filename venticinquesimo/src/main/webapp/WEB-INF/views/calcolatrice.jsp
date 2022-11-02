@@ -10,12 +10,13 @@
 	<h2>Pagina calcolo</h2>
 	
 <%  
-
+ 
 String primonumero= request.getParameter("primonumero");
 String secondonumero= request.getParameter("secondonumero");
 
 if(primonumero!=null && secondonumero!=null)
 {
+	
 double numero1=Double.parseDouble(primonumero);//converting back into integer
 double numero2=Double.parseDouble(secondonumero);//converting back into integer
 

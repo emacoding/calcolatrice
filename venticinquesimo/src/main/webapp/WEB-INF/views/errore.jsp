@@ -12,23 +12,33 @@
 	
 
 <p><b>Errore!</b>
-Sono stati inseriti numeri negativi o decimali.. riprova inserendo numeri interi positivi
+Sono stati inseriti numeri negativi, decimali, o simboli.. riprova inserendo numeri interi positivi
    <br>
    
    <b>Primo numero:</b>
-    <%= request.getParameter("primonumero")
-   %>
+       <%= request.getParameter("primonumero") %>
+   
   <br>
   
   <b>Secondo numero:</b>
-    <%= request.getParameter("secondonumero")
-    %>
+      <%= request.getParameter("secondonumero") %>
+  
   <br>
   <br>
   
+  <%  try{
+  		double primonumero =  Double.parseDouble(request.getParameter("primonumero")); 
+  		double secondonumero =  Double.parseDouble(request.getParameter("secondonumero")); 
+  %>
   
-    <a href="home?primonumero=<%= request.getParameter("primonumero")%>&secondonumero=<%= request.getParameter("secondonumero")%>">Torna all'inserimento</a>
-  
+    <a href="home?primonumero=<%= primonumero%>&secondonumero=<%= secondonumero%>">Torna all'inserimento</a>
+  <% }
+  catch(Exception e){
+	  %>
+	    <a href="home">Torna all'inserimento</a>
+<%
+  }
+  %>
   
 </p>
 

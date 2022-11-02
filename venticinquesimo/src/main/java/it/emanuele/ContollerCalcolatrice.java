@@ -31,17 +31,21 @@ public class ContollerCalcolatrice {
 	   public  String stampa(Map <String, Object> invia , HttpServletRequest request) {
 			double risultato=0;
 			
-			double numero1= Double.parseDouble(request.getParameter("primonumero"));
-			double numero2= Double.parseDouble(request.getParameter("secondonumero"));
-
-			int numerouno = (int)numero1;
-			int numerodue = (int)numero2;
 			
-			double differenzauno = numero1- numerouno;
-			double differenzadue = numero2- numerodue;
+			 try {
+				 
+				 double numero1= Double.parseDouble(request.getParameter("primonumero"));
+					double numero2= Double.parseDouble(request.getParameter("secondonumero"));
 
-			 risultato = numero1 + numero2;
-			 if(numero1>0 && numero2>0 && (differenzauno==0) && (differenzadue==0))
+					int numerouno = (int)numero1;
+					int numerodue = (int)numero2;
+					
+					double differenzauno = numero1- numerouno;
+					double differenzadue = numero2- numerodue;
+
+					 risultato = numero1 + numero2;
+				 
+			 if(numero1>=0 && numero2>=0 && (differenzauno==0) && (differenzadue==0))
 			 {
 			 invia.put("risultato", risultato);
 
@@ -55,11 +59,11 @@ public class ContollerCalcolatrice {
 				 return "errore";
 				 
 			 }
-			 
-			 
-			 
+			 }
+			 catch(Exception e) {
+				 return "errore";
 			
-			
+			 }
 	        
 	    }
 		
